@@ -10,6 +10,89 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <0>;
+      flavor = "tap-preferred";
+      bindings =
+        <&kp>,
+        <&kp>;
+    };
+  };
+
+  combos {
+    compatible = "zmk,combos";
+
+    del {
+      bindings = <&kp DEL>;
+      key-positions = <10 11>;
+    };
+
+    cmd {
+      bindings = <&kp LCMD>;
+      key-positions = <37 36>;
+    };
+
+    esc {
+      bindings = <&kp ESC>;
+      key-positions = <0 1>;
+    };
+
+    equal {
+      bindings = <&kp EQUAL>;
+      key-positions = <18 19>;
+    };
+
+    minus {
+      bindings = <&kp MINUS>;
+      key-positions = <30 31>;
+    };
+
+    capsLock {
+      bindings = <&kp CAPS>;
+      key-positions = <6 7>;
+    };
+
+    f3 {
+      bindings = <&kp F3>;
+      key-positions = <3 15>;
+    };
+
+    f4 {
+      bindings = <&kp F4>;
+      key-positions = <4 16>;
+    };
+
+    f10 {
+      bindings = <&kp F10>;
+      key-positions = <10 22>;
+    };
+
+    space {
+      bindings = <&kp SPACE>;
+      key-positions = <37 38>;
+    };
+  };
+
+  macros {
+    zed_em_kay: zed_em_kay {
+      compatible = "zmk,behavior-macro";
+      label = "ZM_zed_em_kay";
+      #binding-cells = <0>;
+      bindings =
+        <&macro_press>,
+        <&kp LSHFT>,
+        <&macro_tap>,
+        <&kp Z &kp M &kp K>,
+        <&macro_release>,
+        <&kp LSHFT>;
+    };
+  };
+
     keymap {
     compatible = "zmk,keymap";
 
